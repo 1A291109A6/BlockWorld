@@ -1,5 +1,5 @@
 class Physics {
-  constructor({ vx = 0, vy = 0, vz = 0, fps = 60, g = 9.8}) {
+  constructor({ vx = 0, vy = 0, vz = 0, fps = 60, g = 9.8 } = {}) {
     this.vx = vx;
     this.vy = vy;
     this.vz = vz;
@@ -7,13 +7,14 @@ class Physics {
     this.g = g;
   }
 
-  updateParameters() {
+  updateParameters(playerPos) {
     this.vy -= this.g / this.fps;
-    Player.pos.x += this.vy / this.fps;
+    playerPos.y += this.vy / this.fps;
 
-    if (Player.pos.y < 0) {
-      Player.pos.y = 0;
-      this.vy = 0;
+    if(playerPos.y < 0) {
+      playerPos.y = 0;
     }
+
+    return playerPos.y
   }
 }
