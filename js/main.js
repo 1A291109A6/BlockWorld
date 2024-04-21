@@ -17,7 +17,6 @@ function updateFrame() {
 
 function gameLoop() {
   updateFrame();
-  time = performance.now();
   requestAnimationFrame(gameLoop);
 }
 
