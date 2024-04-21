@@ -1,6 +1,6 @@
 class Player {
   
-  constructor(x, y, z, rx, ry, { fps = 60 }) {
+  constructor(x, y, z, rx, ry, { fps = 60 } = {}) {
     this.pos = { x, y, z };
     this.dir = { rx, ry };
     this.fps = fps;
@@ -12,6 +12,7 @@ class Player {
     this.cosRy = Math.cos(this.dir.ry);
     this.sinRx = Math.sin(this.dir.rx);
     this.sinRy = Math.sin(this.dir.ry);
+    this.trigonometricFunction = [this.cosRx, this.cosRy, this.sinRx, this.sinRy];
   }
   
   move(dx, dz, speed) {
